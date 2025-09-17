@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca Online</title>
+
+    <!-- Link para o CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Título Principal -->
+    <h1 class="titulo-principal">Biblioteca Online</h1>
+
+    <!-- Formulário de cadastro -->
+    <form action="{{ url_for('adicionar') }}" method="post">
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" required>
+        </div>
+
+        <div class="form-group">
+            <label for="autor">Autor:</label>
+            <input type="text" name="autor" required>
+        </div>
+
+        <div class="form-group">
+            <label for="edicao">Edição:</label>
+            <input type="text" name="edicao" required>
+        </div>
+
+        <div class="form-group">
+            <label for="categoria">Categoria:</label>
+            <select name="categoria" required>
+                <option value="Livro">Livro</option>
+                <option value="Mangá">Mangá</option>
+                <option value="Quadrinho">Quadrinho</option>
+            </select>
+        </div>
+
+        <!-- Botão de Adicionar -->
+        <div class="form-actions">
+            <button type="submit" class="btn-adicionar">Adicionar</button>
+        </div>
+    </form>
+
+    <!-- Tabela de Itens Disponíveis -->
+    <h2 class="titulo-livros">Itens Disponíveis</h2>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Dias Emprestados</th>
+            <th>Ações</th>
+        </tr>
+        {% for item in disponiveis %}
+        <tr>
+            <td>{{ item.descricao() }}</td>
+            <td>
+                <input type="number" name="dias" min="1" max="30" value="7" class="input-dias">
+            </td>
+            <td>
+                <!-- Botão de Excluir -->
+                <form action="{{ url_for('remover', indice=loop.index0) }}" method="post" style="display:inline;">
+                    <button type="submit" class="btn-excluir">Excluir</button>
+                </form>
+                <!-- Botão de Emprestar -->
+                <form action="{{ url_for('emprestar', indice=loop.index0) }}" method="post" style="display:inline;">
+                    <button type="submit" class="btn-emprestar">Emprestar</button>
+                </form>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="3">Nenhum item disponível.</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Tabela de Itens Emprestados -->
+    <h2 class="titulo-livros">Itens Emprestados</h2>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Data de Devolução</th>
+            <th>Ações</th>
+        </tr>
+        {% for item in emprestados %}
+        <tr>
+            <td>{{ item.descricao() }}</td>
+            <td>{{ item.data_devolucao.strftime('%d/%m/%Y') }}</td>
+            <td>
+                <!-- Botão de Devolver -->
+                <form action="{{ url_for('devolver', indice=loop.index0) }}" method="post" style="display:inline;">
+                    <button type="submit" class="btn-devolver">Devolver</button>
+                </form>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="3">Nenhum item emprestado.</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+    <footer>
+        <p>📚 Biblioteca Online - Exemplo Flask + POO</p>
+        <small>&copy; 2025</small>
+    </footer>
+</body>
+</html>

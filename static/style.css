@@ -1,0 +1,419 @@
+/* ==============================
+   Estrutura básica
+================================= */
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background: #f4f4f9;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ==============================
+   Títulos
+================================= */
+h1 {
+    color: #b319e6;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.titulo-principal {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 900;
+    color: #7c3aed;
+    margin-top: 0;
+    margin-bottom: 36px;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 16px rgba(124, 58, 237, 0.10);
+    background: linear-gradient(90deg, #b319e6 0%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.titulo-livros {
+    color: #b319e6;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+/* ==============================
+   Formulários
+================================= */
+form {
+    margin-bottom: 20px;
+    padding: 30px 30px 20px 30px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(179, 25, 230, 0.08);
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #7c3aed;
+}
+
+.form-group input,
+.form-group select {
+    padding: 8px 10px;
+    border: 1px solid #bdbdbd;
+    border-radius: 6px;
+    font-size: 15px;
+    background: #f8f8fc;
+    transition: border 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border: 1.5px solid #b319e6;
+    outline: none;
+    background: #fff;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+form[style*="display:inline"] {
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    display: inline;
+}
+.input-dias {
+    width: 70px;
+    padding: 7px 10px;
+    border: 1.5px solid #b319e6;
+    border-radius: 6px;
+    font-size: 15px;
+    background: #f8f8fc;
+    color: #7c3aed;
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(179, 25, 230, 0.06);
+    margin-right: 8px;
+}
+
+.input-dias:focus {
+    border: 1.5px solid #7c3aed;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(124, 58, 237, 0.10);
+}
+
+/* ==============================
+   Botões
+================================= */
+button {
+    padding: 5px 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #218838;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.btn-adicionar {
+    background: linear-gradient(90deg, #b319e6 0%, #7c3aed 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 32px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(179, 25, 230, 0.08);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.btn-adicionar:hover {
+    background: linear-gradient(90deg, #7c3aed 0%, #b319e6 100%);
+    transform: translateY(-2px) scale(1.04);
+}
+
+.btn-excluir {
+    background: linear-gradient(90deg, #ff416c 0%, #ff4b2b 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0 6px;
+    box-shadow: 0 2px 8px rgba(255, 65, 108, 0.10);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    float: right;
+}
+
+.btn-excluir:hover {
+    background: linear-gradient(90deg, #ff4b2b 0%, #ff416c 100%);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 4px 16px rgba(255, 65, 108, 0.18);
+}
+
+.btn-emprestar {
+    background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0 6px;
+    box-shadow: 0 2px 8px rgba(0, 114, 255, 0.10);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    float: right;
+}
+
+.btn-emprestar:hover {
+    background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 4px 16px rgba(0, 114, 255, 0.18);
+}
+
+.btn-devolver {
+    background: linear-gradient(90deg, #ffb347 0%, #ffcc33 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0 6px;
+    box-shadow: 0 2px 8px rgba(255, 204, 51, 0.10);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    float: right;
+}
+
+/* ==============================
+   Tabelas
+================================= */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 24px;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(124, 58, 237, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th, td {
+    border: none;
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 15px;
+}
+
+th {
+    background: linear-gradient(90deg, #b319e6 0%, #7c3aed 100%);
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #ede7f6;
+}
+
+td {
+    color: #555;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f8fc;
+}
+
+tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+tr:hover {
+    background-color: #ede7f6;
+    transition: background 0.2s;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+/* ==============================
+   Links
+================================= */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ==============================
+   Mensagens
+================================= */
+.error {
+    color: red;
+    margin-bottom: 20px;
+}
+
+.success {
+    color: green;
+    margin-bottom: 20px;
+}
+
+/* ==============================
+   Paginação
+================================= */
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.pagination a:hover {
+    text-decoration: underline;
+}
+
+.pagination .current {
+    font-weight: bold;
+    color: #333;
+}
+
+.pagination .disabled {
+    color: #ccc;
+    pointer-events: none;
+}
+
+/* ==============================
+   Rodapé
+================================= */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #777;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer small {
+    color: #aaa;
+}
+
+footer img {
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+}
+
+footer img:hover {
+    opacity: 0.8;
+}
+/* ==============================
+   Responsividade
+================================= */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .form-group {
+        flex-direction: column;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn-adicionar,
+    .btn-excluir,
+    .btn-emprestar,
+    .btn-devolver {
+        width: 100%;
+        margin: 8px 0;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 12px 14px;
+    }
+}
+/* ==============================
+   Animações
+================================= */
+.btn-adicionar,
+.btn-excluir,
+.btn-emprestar,
+.btn-devolver {
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-adicionar:hover,
+.btn-excluir:hover,
+.btn-emprestar:hover,
+.btn-devolver:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 4px 16px rgba(0, 114, 255, 0.18);
+}
+/* ==============================
+   Efeitos de foco
+================================= */
+.btn-adicionar:focus,
+.btn-excluir:focus,
+.btn-emprestar:focus,
+.btn-devolver:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 114, 255, 0.4);
+}
+
+
